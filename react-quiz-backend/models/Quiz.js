@@ -10,7 +10,7 @@ const questionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    options: [String], // For multiple-choice questions
+    options: [String],
     correctAnswer: {
         type: String,
         required: true
@@ -24,6 +24,11 @@ const questionSchema = new mongoose.Schema({
 const quizSchema = new mongoose.Schema({
     title: {
         type: String,
+        required: true
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     description: {
